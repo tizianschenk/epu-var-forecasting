@@ -233,23 +233,22 @@ decomposition to this residual covariance structure.
 
 \begin{table}[H]
 \centering
-\caption{Correlation Matrix of Reduced-Form Residuals}
-\label{tab:resid_corr}
+\caption{Variance-Covariance Matrix of Reduced-Form Residuals ($\Sigma_u$)}
+\label{tab:resid_cov}
 \begin{tabular}{lcccc}
 \hline
-            & EPU      & PAYEMS\_g & INDPRO\_g & PCEPI\_g \\
+            & EPU        & PAYEMS\_g  & INDPRO\_g  & PCEPI\_g  \\
 \hline
-EPU         & 1.000000 & -0.056580 & -0.054108 & -0.018936 \\
-PAYEMS\_g   & -0.056580 & 1.000000 & 0.319911  & 0.078671  \\
-INDPRO\_g   & -0.054108 & 0.319911  & 1.000000 & -0.024266 \\
-PCEPI\_g    & -0.018936 & 0.078671  & -0.024266 & 1.000000 \\
+EPU         & 964.407146 & -0.182425  & -0.946386  & -0.098089 \\
+PAYEMS\_g   & -0.182425  & 0.010779   & 0.018707   & 0.001362  \\
+INDPRO\_g   & -0.946386  & 0.018707   & 0.317218   & -0.002280 \\
+PCEPI\_g    & -0.098089  & 0.001362   & -0.002280  & 0.027822  \\
 \hline
 \end{tabular}
 \begin{flushleft}
-\footnotesize \textit{Note: The table reports the contemporaneous correlations among the reduced-form VAR(1) residuals. Diagonal elements equal one by construction. Off-diagonal values measure the degree of residual co-movement not explained by lagged variables.}
+\footnotesize \textit{Note: The table reports the variance-covariance matrix ($\Sigma_u$) of the reduced-form VAR(1) residuals. Diagonal elements represent the variances of the residuals for each variable, while off-diagonal elements represent the covariances.}
 \end{flushleft}
 \end{table}
-
 
 \subsection*{3. Impulse Response Function Estimation}
 
@@ -338,21 +337,21 @@ consequence of the election uncertainty rippling through the system.
 
 \subsection*{4. Shortcomings}
 
-The entire structural analysis relies on fragile identification assumptions, specifically the choice to place the policy uncertainty index 
-first in the model. This mathematically forces the assumption that news coverage of uncertainty does not react to a sudden drop in industrial
-production within the same month. In reality, journalists write about economic downturns exactly as they happen. Because our model ignores this 
-potential reverse causality, it might be mixing up causes and effects, which ultimately biases the results of the structural forecast.
-
-Additionally, the model relies on outdated estimation data, having been trained entirely on historical figures from 1985 to 2019 to forecast 
-the economy in 2023. The post-pandemic economy experienced massive structural shifts, including supply chain breakdowns, unprecedented labor 
-market reallocation, and historically high inflation. Because the model learned the economic relationships of a completely different era, 
-applying those old rules to forecast a new economic regime might lead to systematically inaccurate predictions.
-
-Finally, the uncertainty index itself conflates several different economic measures by bundling media sentiment, expiring tax codes, and 
-disagreements among professional forecasters into a single number. When the forecast is forced to mimic the uncertainty of the 2020 election, 
-it implicitly assumes that all three of these distinct components would repeat their exact past behavior. The index also broadly mixes general 
-political anxiety with specific economic policy uncertainty, meaning the simulated shock is likely artificially exaggerated and lacks the 
-precision needed for highly accurate scenario analysis
+\begin{itemize}
+    \item The entire structural analysis relies on fragile identification assumptions, specifically the choice to place the policy uncertainty index 
+    first in the model. This mathematically forces the assumption that news coverage of uncertainty does not react to a sudden drop in industrial
+    production within the same month. In reality, journalists write about economic downturns exactly as they happen. Because our model ignores this 
+    potential reverse causality, it might be mixing up causes and effects, which ultimately biases the results of the structural forecast.
+    \item Additionally, the model relies on outdated estimation data, having been trained entirely on historical figures from 1985 to 2019 to forecast 
+    the economy in 2023. The post-pandemic economy experienced massive structural shifts, including supply chain breakdowns, unprecedented labor 
+    market reallocation, and historically high inflation. Because the model learned the economic relationships of a completely different era, 
+    applying those old rules to forecast a new economic regime might lead to systematically inaccurate predictions.
+    \item Finally, the uncertainty index itself conflates several different economic measures by bundling media sentiment, expiring tax codes, and 
+    disagreements among professional forecasters into a single number. When the forecast is forced to mimic the uncertainty of the 2020 election, 
+    it implicitly assumes that all three of these distinct components would repeat their exact past behavior. The index also broadly mixes general 
+    political anxiety with specific economic policy uncertainty, meaning the simulated shock is likely artificially exaggerated and lacks the 
+    precision needed for highly accurate scenario analysis.
+\end{itemize}
 
 
 \end{document}
